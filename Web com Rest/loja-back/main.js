@@ -15,12 +15,10 @@ app.use('/produtos', require('./controllers/produto_controller'));
 app.use('/postagens', require('./controllers/postagem_controller'));
 
 console.log('Conectando ao banco de dados...')
-mongoose.connect(process.env.URL_BANCO_DE_DADOS).then(() => {
+const url = process.env.URL_BANCO_DE_DADOS;
+mongoose.connect(url).then(() => {
     console.log('Conectado ao banco de dados com sucesso!')
     app.listen(parseInt(process.env.PORTA_SERVIDOR), () => {
         console.log(`O servidor está no ar em http://localhost:${process.env.PORTA_SERVIDOR}`);
     });
 });
-
-
-

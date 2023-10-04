@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Postagem = require('../models/Postagem');
+const Postagem = require('../models/postagem');
 
 router.get('/', async (req, res) => { // Lista todos
     res.json(await Postagem.find());
